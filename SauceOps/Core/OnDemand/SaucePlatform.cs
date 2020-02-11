@@ -20,8 +20,8 @@ namespace SauceOps.Core.OnDemand {
         public string Url { get; set; }
         public string Device { get; set; }
 
-        [JsonProperty(PropertyName = "device-type")]
-        public string DeviceType { get; set; }
+        //[JsonProperty(PropertyName = "device-type")]
+        //public string DeviceType { get; set; }
 
         [JsonProperty(PropertyName = "device-orientation")]
         public string DeviceOrientation { get; set; }
@@ -34,12 +34,12 @@ namespace SauceOps.Core.OnDemand {
         //    //OnceOnlyMessages.OnDemand();
         //}
 
-        public SaucePlatform(string os, string platform, string browser, string browserVersion, string longName,
+        public SaucePlatform(string platformName, string browser, string browserVersion, string platform, string longName,
             string longVersion, string url, string device, string deviceOrientation) {
-            Os = os;
-            Platform = platform;
+            Os = platformName;
             Browser = browser;
             BrowserVersion = browserVersion;
+            Platform = platform;
             LongName = longName;
             LongVersion = longVersion;
             Url = url;
