@@ -14,7 +14,7 @@ steps:
   inputs:
     command: 'build'
     projects: 'SauceOps.sln'
-    arguments: 'Configuration=Release'
+    arguments: '-c Release'
 
 - task: DotNetCoreCLI@2
   inputs:
