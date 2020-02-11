@@ -26,21 +26,15 @@ namespace SauceOps.Core.Options
 
         private static DriverOptions GetDesktopOptions(SaucePlatform platform, string testName)
         {
-            switch (platform.Browser.ToLower())
+            return (platform.Browser.ToLower()) switch
             {
-                case "firefox":
-                    return new FirefoxCreator().Create(platform, testName).GetOpts();
-                case "internet explorer":
-                    return new IECreator().Create(platform, testName).GetOpts();
-                case "microsoftedge":
-                    return new EdgeCreator().Create(platform, testName).GetOpts();
-                case "chrome":
-                    return new ChromeCreator().Create(platform, testName).GetOpts();
-                case "safari":
-                    return new SafariCreator().Create(platform, testName).GetOpts();
-                default:
-                    return new ChromeCreator().Create(platform, testName).GetOpts();
-            }
+                "firefox" => new FirefoxCreator().Create(platform, testName).GetOpts(),
+                "internet explorer" => new IECreator().Create(platform, testName).GetOpts(),
+                "microsoftedge" => new EdgeCreator().Create(platform, testName).GetOpts(),
+                "chrome" => new ChromeCreator().Create(platform, testName).GetOpts(),
+                "safari" => new SafariCreator().Create(platform, testName).GetOpts(),
+                _ => new ChromeCreator().Create(platform, testName).GetOpts(),
+            };
         }
     }
 }

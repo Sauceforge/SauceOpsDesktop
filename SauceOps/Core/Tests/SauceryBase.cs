@@ -10,7 +10,7 @@ using System;
 namespace SauceOps.Core.Tests
 {
     //[Parallelizable(ParallelScope.Children)]
-    [TestFixtureSource(typeof(PlatformTestData))]
+    [TestFixtureSource(typeof(PlatformTestData), "Platforms")]
     public class SauceryBase : SauceryRoot {
         protected SauceryRemoteWebDriver Driver;
 

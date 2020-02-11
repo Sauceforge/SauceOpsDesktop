@@ -8,7 +8,7 @@ using SauceOps.Core.OnDemand;
 
 namespace SauceOps.Core.Tests {
     //[Parallelizable(ParallelScope.Children)]
-    [TestFixtureSource(typeof(PlatformTestData))]
+    [TestFixtureSource(typeof(PlatformTestData), "Platforms")]
     public class SauceryAndroidBase : SauceryRoot {
         protected SauceryAndroidDriver Driver;
 

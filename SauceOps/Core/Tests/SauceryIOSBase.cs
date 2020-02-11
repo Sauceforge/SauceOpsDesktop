@@ -2,14 +2,13 @@
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
 using SauceOps.Core.DataSources;
 using SauceOps.Core.Driver;
 using SauceOps.Core.OnDemand;
 
 namespace SauceOps.Core.Tests {
     //[Parallelizable(ParallelScope.Children)]
-    [TestFixtureSource(typeof(PlatformTestData))]
+    [TestFixtureSource(typeof(PlatformTestData), "Platforms")]
     public class SauceryIOSBase : SauceryRoot {
         protected SauceryIOSDriver Driver;
 
