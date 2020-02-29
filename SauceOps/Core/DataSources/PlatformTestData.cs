@@ -9,21 +9,15 @@ namespace SauceOps.Core.DataSources
             get
             {
                 //Desktop Platforms
-                yield return new SaucePlatform("Windows 10", //platformName
-                                               "Chrome",     //browser
-                                               "80.0",       //browserVersion
-                                               "",           //platform
-                                               "",           //longName
-                                               "",           //longVersion
-                                               "",           //url
-                                               "",           //device
-                                               "");          //deviceOrientation
-                //iOS Platforms
-                yield return new SaucePlatform("", "", "13.0", "", "", "", "", "iPhone XR Simulator", "portrait");
-
-                //Android Platforms
-                yield return new SaucePlatform("", "", "8.1", "", "", "", "", "Samsung Galaxy Tab S3 GoogleAPI Emulator", "portrait");
-
+                yield return new SaucePlatform("Windows 10", "chrome", "latest", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "chrome", "62", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "chrome", "61", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "firefox", "54", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "firefox", "53", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "safari", "12", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "safari", "11", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "internet explorer", "11", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "microsoftedge", "80", "", "", "", "", "", "");
             }
         }
     }

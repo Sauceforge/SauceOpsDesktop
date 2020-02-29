@@ -8,6 +8,7 @@ using SauceOps.Core.RestAPI.FlowControl;
 using SauceOps.Core.RestAPI.RecommendedAppiumVersion;
 using SauceOps.Core.RestAPI.TestStatus;
 using SauceOps.Core.Util;
+using System;
 using System.Collections.Generic;
 
 namespace SauceOps.Core.Tests {
@@ -40,11 +41,15 @@ namespace SauceOps.Core.Tests {
 
             //DebugMessages.PrintPlatformDetails(platform);
             // set up the desired capabilities
-            var opts = OptionFactory.CreateOptions(Platform, TestName);
-
-            if(opts == null) { System.Console.WriteLine("opts object is null"); }
-            
-            InitialiseDriver(opts, 30);
+            var factory = new OptionFactory(Platform);
+            if (factory.IsSupportedPlatform())
+            {
+                var opts = factory.CreateOptions(TestName);
+                InitialiseDriver(opts, 30);
+            } else
+            {
+                Console.WriteLine(SauceOpsConstants.NOT_SUPPORTED_MESSAGE);
+            }
         }
 
         public abstract void InitialiseDriver(DriverOptions opts, int waitSecs);

@@ -11,15 +11,18 @@ namespace SauceOps.Core.Options.Base
 
         protected BaseOptions(string testName) {
             _testName = testName;
-            SauceOptions = new Dictionary<string, object>();
-            SauceOptions.Add(SauceOpsConstants.SAUCE_USERNAME_CAPABILITY, Enviro.SauceUserName);
-            SauceOptions.Add(SauceOpsConstants.SAUCE_ACCESSKEY_CAPABILITY, Enviro.SauceApiKey);
-            //This sets the Session column
-            SauceOptions.Add(SauceOpsConstants.SAUCE_SESSIONNAME_CAPABILITY, _testName);
-            //This sets the Build column
-            SauceOptions.Add(SauceOpsConstants.SAUCE_BUILDNAME_CAPABILITY, Enviro.BuildNumber);
-            //Improve performance on SauceLabs
-            SauceOptions.Add(SauceOpsConstants.SAUCE_VUOP_CAPABILITY, false);
+            SauceOptions = new Dictionary<string, object>
+            {
+                { SauceOpsConstants.SAUCE_USERNAME_CAPABILITY, Enviro.SauceUserName },
+                { SauceOpsConstants.SAUCE_ACCESSKEY_CAPABILITY, Enviro.SauceApiKey },
+                { SauceOpsConstants.SELENIUM_VERSION_CAPABILITY, SauceOpsConstants.LATEST_SELENIUM_VERSION },
+                //This sets the Session column
+                { SauceOpsConstants.SAUCE_SESSIONNAME_CAPABILITY, _testName },
+                //This sets the Build column
+                { SauceOpsConstants.SAUCE_BUILDNAME_CAPABILITY, Enviro.BuildNumber },
+                //Improve performance on SauceLabs
+                { SauceOpsConstants.SAUCE_VUOP_CAPABILITY, false }
+            };
             //SauceOptions.Add(Constants.VISIBILITY_KEY, Constants.VISIBILITY_TEAM);
         }
 

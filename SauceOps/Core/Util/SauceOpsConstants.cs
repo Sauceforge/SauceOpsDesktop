@@ -26,8 +26,10 @@
         //CAPABILITIES
         //internal const string RESOLUTION_CAPABILITY = "resolution";
         //internal const string SCREENRESOLUTION_CAPABILITY = "screen-resolution";
-        internal const string SAUCE_APPIUM_VERSION_CAPABILITY = "appiumVersion";
+        //internal const string SAUCE_APPIUM_VERSION_CAPABILITY = "appiumVersion";
         //internal const string APPIUM_VERSION = "1.4.13";
+        internal const string SELENIUM_VERSION_CAPABILITY = "seleniumVersion";
+        internal const string LATEST_SELENIUM_VERSION = "3.141.0";  //"latest" does not work.
         internal const double APPIUM_IOS_MINIMUM_VERSION = 6.1;
         internal const double APPIUM_ANDROID_MINIMUM_VERSION = 4.4;
         internal const string SAUCE_SESSIONNAME_CAPABILITY = "name";
@@ -141,6 +143,13 @@
         internal const string VISIBILITY_SHARE = "share";
         internal const string VISIBILITY_TEAM = "team";
         internal const string VISIBILITY_PRIVATE = "private";
+
+        //OPTIONS BROWSER SUPPORT
+        internal const int SAFARI_SUPPORTED_VERSION = 11;
+        internal const int FIREFOX_SUPPORTED_VERSION = 53;
+        internal const int CHROME_SUPPORTED_VERSION = 61;
+        internal const int IE_SUPPORTED_VERSION = 11;
+        internal const string NOT_SUPPORTED_MESSAGE = "Browser version not supported by DriverOptions. Please see: https://wiki.saucelabs.com/display/DOCS/2018/03/27/Introducing+Selenium+WebDriver+W3C+Protocol+Beta.";
     }
 }
 /*

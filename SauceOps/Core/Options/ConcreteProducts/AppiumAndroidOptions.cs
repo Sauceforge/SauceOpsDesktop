@@ -20,9 +20,9 @@ namespace SauceOps.Core.Options.ConcreteProducts
             Opts = new AppiumOptions();
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_NAME_CAPABILITY, platform.LongName);
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_ORIENTATION_CAPABILITY, platform.DeviceOrientation);
-            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_BROWSER_NAME_CAPABILITY, SauceOpsConstants.CHROME_BROWSER);
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_PLATFORM_VERSION_CAPABILITY, sanitisedLongVersion);
-            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_PLATFORM_NAME_CAPABILITY, SauceOpsConstants.ANDROID);
+            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_BROWSER_NAME_CAPABILITY, SauceOpsConstants.CHROME_BROWSER);  //Required
+            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_PLATFORM_NAME_CAPABILITY, SauceOpsConstants.ANDROID);
             
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_OPTIONS_CAPABILITY, SauceOptions);
         }

@@ -62,6 +62,39 @@ namespace SauceOps.Core.Options {
             //        : platform.LongVersion.Trim();
         }
 
+        public static bool FirefoxVersionIsSupported(this SaucePlatform Platform)
+        {
+            return Platform.BrowserVersion.Equals("latest") 
+                ? true 
+                : Platform.ParseBrowserVersion() >= SauceOpsConstants.FIREFOX_SUPPORTED_VERSION;
+        }
+
+        public static bool IEVersionIsSupported(this SaucePlatform Platform)
+        {
+            return Platform.BrowserVersion.Equals("latest")
+                ? true
+                : Platform.ParseBrowserVersion() >= SauceOpsConstants.IE_SUPPORTED_VERSION;
+        }
+
+        public static bool SafariVersionIsSupported(this SaucePlatform Platform)
+        {
+            return Platform.BrowserVersion.Equals("latest")
+                ? true
+                : Platform.ParseBrowserVersion() >= SauceOpsConstants.SAFARI_SUPPORTED_VERSION;
+        }
+
+        public static bool AndroidVersionIsSupported(this SaucePlatform Platform)
+        {
+            return true;
+        }
+
+        public static bool ChromeVersionIsSupported(this SaucePlatform Platform)
+        {
+            return Platform.BrowserVersion.Equals("latest")
+                ? true
+                : Platform.ParseBrowserVersion() >= SauceOpsConstants.CHROME_SUPPORTED_VERSION;
+        }
+
         private static string DesktopTestName(StringBuilder shortTestName, SaucePlatform platform) {
             return AppendPlatformField(AppendPlatformField(AppendPlatformField(shortTestName, platform.Os), 
                                                            platform.Browser),

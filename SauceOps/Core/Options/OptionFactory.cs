@@ -1,18 +1,35 @@
 ﻿using OpenQA.Selenium;
 using SauceOps.Core.OnDemand;
 using SauceOps.Core.Options.ConcreteCreators;
+using SauceOps.Core.Util;
 
 namespace SauceOps.Core.Options
 {
-    internal class OptionFactory {
-        public static DriverOptions CreateOptions(SaucePlatform platform, string testName) {
-            if (platform.IsADesktopPlatform()) {
-                return GetDesktopOptions(platform, testName);
+    public class OptionFactory
+    {
+        private SaucePlatform Platform { get; set; }
+
+        public OptionFactory(SaucePlatform platform)
+        {
+            Platform = platform;
+        }
+
+        public DriverOptions CreateOptions(string testName) {
+            if (Platform.IsADesktopPlatform()) {
+                DebugMessages.PrintHaveDesktopPlatform();
+                return GetDesktopOptions(Platform, testName);
             }
             //Mobile Platform
-            return platform.IsAnAppleDevice()
-                    ? new AppiumIOSCreator().Create(platform, testName).GetOpts()
-                    : new AppiumAndroidCreator().Create(platform, testName).GetOpts();
+            if (Platform.IsAnAppleDevice())
+            {
+                DebugMessages.PrintHaveApplePlatform();
+                return new AppiumIOSCreator().Create(Platform, testName).GetOpts();
+            }
+            else
+            {
+                DebugMessages.PrintHaveAndroidPlatform();
+                return new AppiumAndroidCreator().Create(Platform, testName).GetOpts();
+            }
             //return platform.CanUseAppium()
             //    //Mobile Platform
             //    ? platform.IsAnAppleDevice()
@@ -26,15 +43,52 @@ namespace SauceOps.Core.Options
 
         private static DriverOptions GetDesktopOptions(SaucePlatform platform, string testName)
         {
-            return (platform.Browser.ToLower()) switch
+            switch (platform.Browser.ToLower())
             {
-                "firefox" => new FirefoxCreator().Create(platform, testName).GetOpts(),
-                "internet explorer" => new IECreator().Create(platform, testName).GetOpts(),
-                "microsoftedge" => new EdgeCreator().Create(platform, testName).GetOpts(),
-                "chrome" => new ChromeCreator().Create(platform, testName).GetOpts(),
-                "safari" => new SafariCreator().Create(platform, testName).GetOpts(),
-                _ => new ChromeCreator().Create(platform, testName).GetOpts(),
-            };
+                case "firefox":
+                    return new FirefoxCreator().Create(platform, testName).GetOpts();
+                case "internet explorer":
+                    return new IECreator().Create(platform, testName).GetOpts();
+                case "microsoftedge":
+                    return new EdgeCreator().Create(platform, testName).GetOpts();
+                case "chrome":
+                    return new ChromeCreator().Create(platform, testName).GetOpts();
+                case "safari":
+                    return new SafariCreator().Create(platform, testName).GetOpts();
+                default:
+                    return new ChromeCreator().Create(platform, testName).GetOpts();
+            }
+        }
+
+        public bool IsSupportedPlatform()
+        {
+            if (Platform.IsAnAndroidDevice())
+            {
+                return true;
+            } 
+            else
+            {
+                if (Platform.IsAnAppleDevice())
+                {
+                    return true;
+                }
+            }
+
+            switch (Platform.Browser.ToLower())
+            {
+                case "firefox":
+                    return Platform.FirefoxVersionIsSupported();
+                case "internet explorer":
+                    return Platform.IEVersionIsSupported();
+                case "microsoftedge":
+                    return true;
+                case "chrome":
+                    return Platform.ChromeVersionIsSupported();
+                case "safari":
+                    return Platform.SafariVersionIsSupported();
+                default:
+                    return false;
+            }
         }
     }
 }
