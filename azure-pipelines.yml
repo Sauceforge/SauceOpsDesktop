@@ -13,7 +13,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: 'SauceOps.sln'
+    projects: 'SauceOpsDesktop.sln'
     arguments: '-c Release'
 
 - task: DotNetCoreCLI@2
