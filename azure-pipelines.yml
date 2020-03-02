@@ -15,6 +15,10 @@ steps:
     targetType: 'inline'
     script: 'Get-ChildItem Env:'
 - task: DotNetCoreCLI@2
+  env:
+    OPSENG_SAUCE_API_KEY: '$(OPSENG_SAUCE_API_KEY)'
+    OPSENG_SAUCE_USER_NAME: '$(OPSENG_SAUCE_USER_NAME)'
+    
   inputs:
     command: 'build'
     projects: 'SauceOpsDesktop.sln'
