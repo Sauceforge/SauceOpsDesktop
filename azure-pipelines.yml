@@ -25,7 +25,7 @@ steps:
     projects: 'UnitTests/UnitTests.csproj'
     arguments: '-c Release'
 
-task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   env:
     OPSENG_SAUCE_API_KEY: $(OPSENG_SAUCE_API_KEY)
     OPSENG_SAUCE_USER_NAME: $(OPSENG_SAUCE_USER_NAME)
