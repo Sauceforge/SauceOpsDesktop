@@ -14,8 +14,8 @@ namespace SauceOps.Core.DataSources
                 yield return new SaucePlatform("Windows 10", "chrome", "61", "", "", "", "", "", "");
                 yield return new SaucePlatform("Windows 10", "firefox", "54", "", "", "", "", "", "");
                 yield return new SaucePlatform("Windows 10", "firefox", "53", "", "", "", "", "", "");
-                yield return new SaucePlatform("Windows 10", "safari", "12", "", "", "", "", "", "");
-                yield return new SaucePlatform("Windows 10", "safari", "11", "", "", "", "", "", "");
+                yield return new SaucePlatform("macOS 10.15", "safari", "13.0", "", "", "", "", "", "");
+                yield return new SaucePlatform("macOS 10.13", "safari", "11.1", "", "", "", "", "", "");
                 yield return new SaucePlatform("Windows 10", "internet explorer", "11", "", "", "", "", "", "");
                 yield return new SaucePlatform("Windows 10", "microsoftedge", "80", "", "", "", "", "", "");
             }
