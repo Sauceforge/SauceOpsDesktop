@@ -14,17 +14,16 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'Get-ChildItem Env:'
-- task: DotNetCoreCLI@2
-  env:
-    OPSENG_SAUCE_API_KEY: '$(OPSENG_SAUCE_API_KEY)'
-    OPSENG_SAUCE_USER_NAME: '$(OPSENG_SAUCE_USER_NAME)'
-    
+- task: DotNetCoreCLI@2 
   inputs:
     command: 'build'
     projects: 'SauceOpsDesktop.sln'
     arguments: '-c Release'
 
 - task: DotNetCoreCLI@2
+  env:
+    OPSENG_SAUCE_API_KEY: '$(OPSENG_SAUCE_API_KEY)'
+    OPSENG_SAUCE_USER_NAME: '$(OPSENG_SAUCE_USER_NAME)'
   inputs:
     command: 'test'
     projects: 'UnitTests/UnitTests.csproj'
