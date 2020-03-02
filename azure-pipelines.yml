@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+variables:
+  OPSENG_SAUCE_API_KEY: '$(OPSENG_SAUCE_API_KEY)'
+  OPSENG_SAUCE_USER_NAME: '$(OPSENG_SAUCE_USER_NAME)'
+
 steps:
 - task: DotNetCoreCLI@2
   inputs:
