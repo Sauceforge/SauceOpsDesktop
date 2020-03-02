@@ -10,10 +10,6 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'Get-ChildItem Env:'
 - task: DotNetCoreCLI@2 
   inputs:
     command: 'build'
@@ -22,8 +18,9 @@ steps:
 
 - task: DotNetCoreCLI@2
   env:
-    OPSENG_SAUCE_API_KEY: '$(OPSENG_SAUCE_API_KEY)'
-    OPSENG_SAUCE_USER_NAME: '$(OPSENG_SAUCE_USER_NAME)'
+    OPSENG_SAUCE_API_KEY: $(OPSENG_SAUCE_API_KEY)
+    OPSENG_SAUCE_USER_NAME: $(OPSENG_SAUCE_USER_NAME)
   inputs:
     command: 'test'
     projects: 'UnitTests/UnitTests.csproj'
+    arguments: '-c Release'
