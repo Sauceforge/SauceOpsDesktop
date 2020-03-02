@@ -36,7 +36,7 @@ namespace UnitTests.RestAPI
                 return true;
             }
 
-            return Response.Content.Contains(SauceryConstants.RESTAPI_LIMIT_EXCEEDED_INDICATOR);
+            return Response.Content.Contains(SauceOpsConstants.RESTAPI_LIMIT_EXCEEDED_INDICATOR);
         }
 
         private bool NoRemaining()

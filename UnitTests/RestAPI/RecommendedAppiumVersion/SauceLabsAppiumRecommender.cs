@@ -5,7 +5,7 @@ using UnitTests.RestAPI.RecommendedAppiumVersion.Base;
 namespace UnitTests.RestAPI.RecommendedAppiumVersion {
     public class SauceLabsAppiumRecommender : AppiumRecommender {
         public override string RecommendAppium() {
-            var json = GetJsonResponse(SauceryConstants.RECOMMENDED_APPIUM_REQUEST);
+            var json = GetJsonResponse(SauceOpsConstants.RECOMMENDED_APPIUM_REQUEST);
             var recommendedAppiumVersion = JsonConvert.DeserializeObject<List<AppiumPlatform>>(json);
             return recommendedAppiumVersion[0].recommended_backend_version;
         }

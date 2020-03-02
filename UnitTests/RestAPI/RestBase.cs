@@ -11,7 +11,7 @@ namespace UnitTests.RestAPI {
         internal static RestAPILimitsChecker LimitChecker;
 
         static RestBase() {
-            Client = new RestClient(SauceryConstants.SAUCE_REST_BASE);
+            Client = new RestClient(SauceOpsConstants.SAUCE_REST_BASE);
             LimitChecker = new RestAPILimitsChecker();
         }
 
@@ -23,7 +23,7 @@ namespace UnitTests.RestAPI {
 
         protected string GetJsonResponse(string requestProforma) {
             var request = BuildRequest(requestProforma, Method.GET);
-            request.OnBeforeDeserialization = resp => { resp.ContentType = SauceryConstants.JSON_CONTENT_TYPE; };
+            request.OnBeforeDeserialization = resp => { resp.ContentType = SauceOpsConstants.JSON_CONTENT_TYPE; };
 
             var response = GetResponse(request);
             return response.Content;
@@ -31,7 +31,7 @@ namespace UnitTests.RestAPI {
 
         protected string GetJsonResponseForUser(string requestProforma) {
             var request = BuildRequest(string.Format(requestProforma, UserName), Method.GET);
-            request.OnBeforeDeserialization = resp => { resp.ContentType = SauceryConstants.JSON_CONTENT_TYPE; };
+            request.OnBeforeDeserialization = resp => { resp.ContentType = SauceOpsConstants.JSON_CONTENT_TYPE; };
 
             var response = GetResponse(request);
             //Console.WriteLine("GetJsonResponseForUser response Content: " + response.Content);
@@ -71,7 +71,7 @@ namespace UnitTests.RestAPI {
         protected string ExtractJsonSegment(string json, int startIndex, int endIndex) {
             var len = endIndex - startIndex;
             var segment = json.Substring(startIndex, len);
-            return string.Format(SauceryConstants.JSON_SEGMENT_CONTAINER, segment);
+            return string.Format(SauceOpsConstants.JSON_SEGMENT_CONTAINER, segment);
         }
     }
 }

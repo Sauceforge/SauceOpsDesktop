@@ -41,7 +41,7 @@ namespace SauceOps.Core.Tests
             if (factory.IsSupportedPlatform())
             {
                 var opts = factory.CreateOptions(TestName);
-                InitialiseDriver(opts, 30);
+                InitialiseDriver(opts, 60);
             } else
             {
                 Console.WriteLine(SauceOpsConstants.NOT_SUPPORTED_MESSAGE);

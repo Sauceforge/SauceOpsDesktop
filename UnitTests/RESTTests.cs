@@ -1,17 +1,17 @@
-﻿using System;
-using NuGet;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Shouldly;
+using System;
 using UnitTests.RestAPI.FlowControl;
 using UnitTests.RestAPI.RecommendedAppiumVersion;
 
-namespace UnitTests {
+namespace UnitTests
+{
     [TestFixture]
     public class RestTests {
         static RestTests() {
             //Console.WriteLine(@"In RestTests static");
-            Environment.SetEnvironmentVariable(SauceryConstants.SAUCE_USER_NAME, SauceryConstants.MY_USERNAME_LOWER);
-            Environment.SetEnvironmentVariable(SauceryConstants.SAUCE_API_KEY, "");
+            Environment.SetEnvironmentVariable(SauceOpsConstants.SAUCE_USER_NAME, SauceOpsConstants.MY_USERNAME_LOWER);
+            Environment.SetEnvironmentVariable(SauceOpsConstants.SAUCE_API_KEY, "");
         }
 
         [Test]

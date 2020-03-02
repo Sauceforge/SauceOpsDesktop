@@ -11,7 +11,7 @@ namespace UnitTests
         public void SanitisedLongVersionTest()
         {
             var longVersion = "10.0.";
-            var result = longVersion.EndsWith(SauceryConstants.DOT)
+            var result = longVersion.EndsWith(SauceOpsConstants.DOT)
                             ? longVersion.Trim().Remove(longVersion.Length - 1)
                             : longVersion.Trim();
             Console.WriteLine("SanitisedLongVersion returning string '{0}'", result);
