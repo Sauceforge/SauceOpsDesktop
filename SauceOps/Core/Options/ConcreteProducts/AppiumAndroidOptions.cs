@@ -3,6 +3,7 @@ using OpenQA.Selenium.Appium;
 using SauceOps.Core.Options.Base;
 using SauceOps.Core.OnDemand;
 using SauceOps.Core.Util;
+using OpenQA.Selenium.Chrome;
 
 namespace SauceOps.Core.Options.ConcreteProducts
 {
@@ -17,11 +18,11 @@ namespace SauceOps.Core.Options.ConcreteProducts
             DebugMessages.PrintAndroidOptionValues(platform, sanitisedLongVersion);
 
             Console.WriteLine("Creating Android Options");
-            Opts = new AppiumOptions();
-            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_NAME_CAPABILITY, platform.LongName);
-            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_ORIENTATION_CAPABILITY, platform.DeviceOrientation);
+            Opts = new ChromeOptions();
+            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_NAME_CAPABILITY, platform.Device);
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_PLATFORM_VERSION_CAPABILITY, sanitisedLongVersion);
-            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_BROWSER_NAME_CAPABILITY, SauceOpsConstants.CHROME_BROWSER);  //Required
+            Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_ORIENTATION_CAPABILITY, platform.DeviceOrientation);
+            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_BROWSER_NAME_CAPABILITY, SauceOpsConstants.CHROME_BROWSER);  //Required
             //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_PLATFORM_NAME_CAPABILITY, SauceOpsConstants.ANDROID);
             
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_OPTIONS_CAPABILITY, SauceOptions);
