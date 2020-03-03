@@ -9,7 +9,7 @@ namespace SauceOps.Core.DataSources
             get
             {
                 ////Desktop Platforms
-                //yield return new SaucePlatform("Windows 10", "chrome", "latest", "", "", "", "", "", "");
+                yield return new SaucePlatform("Windows 10", "chrome", "latest", "", "", "", "", "", "");
                 //yield return new SaucePlatform("Windows 10", "chrome", "62", "", "", "", "", "", "");
                 //yield return new SaucePlatform("Windows 10", "chrome", "61", "", "", "", "", "", "");
                 //yield return new SaucePlatform("Windows 10", "firefox", "54", "", "", "", "", "", "");
@@ -20,7 +20,7 @@ namespace SauceOps.Core.DataSources
                 //yield return new SaucePlatform("Windows 10", "microsoftedge", "80", "", "", "", "", "", "");
 
                 //Mobile Platforms - TESTING ONLY AT THIS STAGE
-                yield return new SaucePlatform("","", "latest", "", "", "13.0", "", "iPhone XS Max Simulator", "portrait");
+                //yield return new SaucePlatform("","", "latest", "", "", "13.0", "", "iPhone XS Max Simulator", "portrait");
             }
         }
     }
