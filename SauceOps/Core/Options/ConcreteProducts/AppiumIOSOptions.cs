@@ -21,14 +21,7 @@ namespace SauceOps.Core.Options.ConcreteProducts {
             SauceOptions.Add(SauceOpsConstants.SAUCE_DEVICE_NAME_CAPABILITY, platform.Device);
             SauceOptions.Add(SauceOpsConstants.SAUCE_PLATFORM_VERSION_CAPABILITY, platform.SanitisedLongVersion());
             SauceOptions.Add(SauceOpsConstants.SAUCE_DEVICE_ORIENTATION_CAPABILITY, platform.DeviceOrientation);
-            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_BROWSER_NAME_CAPABILITY, SauceOpsConstants.SAFARI_BROWSER); //Required
-            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_PLATFORM_NAME_CAPABILITY, SauceOpsConstants.IOS_PLATFORM);
-
-
-            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_CAPABILITY, platform.Device);
-            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_CAPABILITY, platform.IsAnIPhone() ? SauceOpsConstants.IPHONE_DEVICE : SauceOpsConstants.IPAD_DEVICE);
-            //Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_DEVICE_CAPABILITY, platform.IsAnIPhone() ? SauceOpsConstants.IPHONE_SIMULATOR : SauceOpsConstants.IPAD_SIMULATOR);
-
+            
             Opts.AddAdditionalCapability(SauceOpsConstants.SAUCE_OPTIONS_CAPABILITY, SauceOptions);
         }
     }
