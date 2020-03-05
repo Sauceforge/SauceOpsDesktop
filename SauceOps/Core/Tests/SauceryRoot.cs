@@ -10,7 +10,7 @@ using System;
 
 namespace SauceOps.Core.Tests
 {
-    [TestFixture]
+    //[TestFixture]  //might not need this
     //[Parallelizable(ParallelScope.Fixtures)]
     public abstract class SauceryRoot {
         protected string TestName;
