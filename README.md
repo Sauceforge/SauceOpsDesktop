@@ -5,9 +5,12 @@ Example of how to integrate Azure DevOps with SauceLabs Desktop Platforms in lie
 1. Go to aaucelabs.com and sign up.
 2. Clone [SauceOpsDesktop](https://github.com/Sauceforge/SauceOpsDesktop) and commit to Azure Repos in your Azure DevOps project.
 3. Add two *private variables* to your pipeline:
-Name | Value
-OPSENG_SAUCE_USER_NAME | <USER NAME field @ https://app.saucelabs.com/user-settings>
-OPSENG_SAUCE_API_KEY | <Access Key field @ https://app.saucelabs.com/user-settings>
+
+| Name                   | Value                                                        |
+| :--------------------: | -------------------------------------------------------------|
+| OPSENG_SAUCE_USER_NAME | <USER NAME field @ https://app.saucelabs.com/user-settings>  |
+| OPSENG_SAUCE_API_KEY   | <Access Key field @ https://app.saucelabs.com/user-settings> |
+
 4. Write your Page Objects [here](https://github.com/Sauceforge/SauceOpsDesktop/tree/master/SauceOps/YourTests/PageObjects).
 5. Write your Tests [here](https://github.com/Sauceforge/SauceOpsDesktop/tree/master/SauceOps/YourTests/Tests).
 6. Specify the platforms you wish to test on [here](https://github.com/Sauceforge/SauceOpsDesktop/blob/master/SauceOps/Core/DataSources/PlatformTestData.cs).
