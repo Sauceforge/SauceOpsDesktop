@@ -19,7 +19,7 @@ namespace SauceOps.Core.Options.Base
                 //This sets the Session column
                 { SauceOpsConstants.SAUCE_SESSIONNAME_CAPABILITY, _testName },
                 //This sets the Build column
-                { SauceOpsConstants.SAUCE_BUILDNAME_CAPABILITY, Enviro.BuildNumber },
+                { SauceOpsConstants.SAUCE_BUILDNAME_CAPABILITY, Enviro.BuildName },
                 //Improve performance on SauceLabs
                 { SauceOpsConstants.SAUCE_VUOP_CAPABILITY, false }
             };
